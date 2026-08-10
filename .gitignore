@@ -1,0 +1,199 @@
+# 默认忽略的文件
+/shelf/
+/workspace.xml
+# 基于编辑器的 HTTP 客户端请求
+/httpRequests/
+# 已忽略包含查询文件的默认文件夹
+/queries/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+
+# ============================================================
+# Python
+# ============================================================
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Environments (virtualenv, conda, poetry, pipenv)
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+pythonenv*/
+.sudo_as_admin_successful
+
+# Jupyter
+.ipynb_checkpoints
+
+# mypy / type checkers
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
+.ruff_cache/
+
+# IPython
+profile_default/
+ipython_config.py
+
+# Cython debug
+cython_debug/
+
+# PEP 582 (pipx)
+__pypackages__/
+
+# ============================================================
+# Secrets / 密钥保护（强烈建议不要提交）
+# ============================================================
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+secrets.json
+credentials.json
+
+# ============================================================
+# 操作系统垃圾文件
+# ============================================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd/
+.DocumentRevisions-V100/
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.lnk
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# ============================================================
+# 编辑器 / IDE
+# ============================================================
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# JetBrains (PyCharm 等)
+.idea/
+*.iml
+*.iws
+out/
+
+# Vim / Neovim
+*.swp
+*.swo
+*~
+.netrwhist
+*.un~
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# ============================================================
+# 日志 / 运行时产物
+# ============================================================
+*.log
+logs/
+*.pid
+*.seed
+*.pid.lock
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ============================================================
+# 数据库 / 缓存（本地）
+# ============================================================
+*.sqlite
+*.sqlite3
+*.db
+*.db3
+db.sqlite3
+redis.conf.*
+
+# ============================================================
+# 项目本地数据（不应入库）
+# ============================================================
+.workbuddy/
+
+# ============================================================
+# 依赖锁定文件的补充说明
+# 注意：requirements.txt / pyproject.toml / poetry.lock 应当提交！
+# 以下一般可提交，此处仅为说明，未作忽略：
+#   pyproject.toml
+#   requirements.txt
+#   requirements-dev.txt
+#   poetry.lock
+#   Pipfile / Pipfile.lock
