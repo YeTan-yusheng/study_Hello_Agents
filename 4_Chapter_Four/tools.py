@@ -5,6 +5,35 @@ from tavily import TavilyClient
 
 load_dotenv()
 
+def calculate(input_str: str):
+    """
+    一个简单的计算工具，支持加减乘除。
+    输入格式: "a, b, operator"，例如 "123, 456, +"
+    """
+    parts = [p.strip() for p in input_str.split(",")]
+    if len(parts) != 3:
+        return "错误:输入格式应为 'a, b, operator'，例如 '123, 456, +'"
+
+    a_str, b_str, operator = parts
+    try:
+        a = float(a_str) if "." in a_str else int(a_str)
+        b = float(b_str) if "." in b_str else int(b_str)
+    except ValueError:
+        return f"错误:无法解析操作数 '{a_str}' 和 '{b_str}'"
+
+    if operator == "+":
+        return a + b
+    elif operator == "-":
+        return a - b
+    elif operator == "*":
+        return a * b
+    elif operator == "/":
+        if b == 0:
+            return "错误:除数不能为零"
+        return a / b
+    else:
+        return f"错误:不支持的运算符 '{operator}'，请使用 +, -, *, /"
+
 
 def search(query: str) -> str:
     """

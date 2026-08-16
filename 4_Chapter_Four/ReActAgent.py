@@ -1,6 +1,6 @@
 import re
 from llm_client import HelloAgentsLLM
-from tools import ToolExecutor, search
+from tools import ToolExecutor, search, calculate
 
 # ReAct 提示词模板
 REACT_PROMPT_TEMPLATE = """
@@ -112,6 +112,9 @@ if __name__ == '__main__':
     tool_executor = ToolExecutor()
     search_desc = "一个网页搜索引擎。当你需要回答关于时事、事实以及在你的知识库中找不到的信息时，应使用此工具。"
     tool_executor.register_tool("search", search_desc, search)
+
+    calculate_desc = "一个简单的计算工具，输入格式为 'a, b, operator'（用逗号分隔），例如 '123, 456, +'。支持加减乘除运算。operator支持+,-,*,/。"
+    tool_executor.register_tool("calculate", calculate_desc, calculate)
     agent = ReActAgent(llm_client=llm, tool_executor=tool_executor)
-    question = "截止到2026年8月14日,华为最新的手机是哪一款？它的主要卖点是什么？"
+    question = "(123 +456) × 789/ 12 ="
     agent.run(question)
