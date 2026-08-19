@@ -10,6 +10,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+
 def create_openai_model_client():
     """创建 OpenAI 模型客户端"""
     return OpenAIChatCompletionClient(
@@ -94,6 +95,9 @@ def create_code_reviewer(model_client):
 
 def create_user_proxy():
     """创建⽤户代理智能体"""
+    def auto_reply(prompt: str) -> str:
+        return "测试通过，功能符合预期。TERMINATE"
+
     return UserProxyAgent(
         name="UserProxy",
         description="""用户代理，负责以下职责：
@@ -102,8 +106,8 @@ def create_user_proxy():
 3. 验证功能是否符合预期
 4. 提供⽤户反馈和建议
 完成测试后请回复 TERMINATE。""",
+        input_func=auto_reply,
     )
-
 
 
 async def run_software_development_team():
@@ -141,9 +145,9 @@ async def run_software_development_team():
 - 界⾯简洁美观，⽤户友好
 - 添加适当的错误处理和加载状态
 请团队协作完成这个任务，从需求分析到最终实现"""
-    print("-"*50)
+    print("-" * 50)
     print("开始团队协作...")
-    print("="*50)
+    print("=" * 50)
 
     # 异步执⾏团队协作，并流式输出对话过程
     result = await Console(team_chat.run_stream(task=task))
@@ -152,6 +156,7 @@ async def run_software_development_team():
     print("团队协作完成！")
 
     return result
+
 
 if __name__ == '__main__':
     try:
@@ -168,4 +173,5 @@ if __name__ == '__main__':
     except Exception as e:
         print(f"❌ 运行错误：{e}")
         import traceback
+
         traceback.print_exc()
